@@ -24,11 +24,8 @@ var category = function(min:number,max:number) {
 };
 
 export const fetchQuestions = async (amount: number, difficulty: Difficulty) => {
-<<<<<<< HEAD
 	const endPoint = `https://opentdb.com/api.php?amount=${amount}&category=${category(9,33)}&difficulty=${difficulty}&type=multiple`;
-=======
-	const endPoint = `https://opentdb.com/api.php?amount=${amount}&category=23&difficulty=${difficulty}&type=multiple`;
->>>>>>> 2847631d4b94fb0e4d124735b7b3d52b3c0b59b7
+
 	// we use double await since we need to await to fetch the endpoint first then await to convert to json
 	const data = await (await fetch(endPoint)).json();
 	return data.results.map((question: Question) => (
