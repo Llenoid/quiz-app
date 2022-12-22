@@ -22,6 +22,7 @@ export enum Difficulty {
 var category = function(min:number,max:number) {
 	return Math.floor(Math.random()*(max-min) + min);
 };
+
 export const fetchQuestions = async (amount: number, difficulty: Difficulty) => {
 <<<<<<< HEAD
 	const endPoint = `https://opentdb.com/api.php?amount=${amount}&category=${category(9,33)}&difficulty=${difficulty}&type=multiple`;
