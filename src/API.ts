@@ -18,9 +18,12 @@ export enum Difficulty {
 	MEDIUM = "medium",
 	HARD = "hard",
 }
-
+// category for the questions ranges from 9-32 so we make the max value 33 so 32 is included
+var category = function(min:number,max:number) {
+	return Math.floor(Math.random()*(max-min) + min);
+};
 export const fetchQuestions = async (amount: number, difficulty: Difficulty) => {
-	const endPoint = `https://opentdb.com/api.php?amount=${amount}&category=20&difficulty=${difficulty}&type=multiple`;
+	const endPoint = `https://opentdb.com/api.php?amount=${amount}&category=${category(9,33)}&difficulty=${difficulty}&type=multiple`;
 	// we use double await since we need to await to fetch the endpoint first then await to convert to json
 	const data = await (await fetch(endPoint)).json();
 	return data.results.map((question: Question) => (
